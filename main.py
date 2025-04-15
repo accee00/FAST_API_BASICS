@@ -16,6 +16,14 @@ class Tea(BaseModel):
     
 teas : List[Tea] =[]
 
+# The q is treated as query by server
+# POST http://localhost:8000/?q=something
+# If You Want q from the Request Body Instead
+# You need to define a Pydantic model to receive JSON body data:
+# @app.post('/')
+# def test(q:str):
+#     return 'hello'
+
 @app.get('/')
 def read_root():
     return {"message":"Welcome to FastApi-Basics"}
